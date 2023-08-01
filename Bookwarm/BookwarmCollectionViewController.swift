@@ -11,7 +11,18 @@ private let reuseIdentifier = "Cell"
 
 class BookwarmCollectionViewController: UICollectionViewController {
 
-    let movieInfo: MovieInfo = MovieInfo()
+    var movieInfo: MovieInfo = MovieInfo() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+//    var todo = TodoCSInformation() {
+//        didSet { // 변수가 달라짐을 감지!
+//            print("DidSet이 뭘까..")
+//            tableView.reloadData()
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +72,14 @@ class BookwarmCollectionViewController: UICollectionViewController {
         cell.layer.cornerRadius = 20
         cell.backgroundColor = colorSet.randomElement()
         
+        cell.favoriteButton.tag = indexPath.row
+        cell.favoriteButton.addTarget(self, action: #selector(favoriteButtonClicked), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func favoriteButtonClicked(_ sender: UIButton) {
+        movieInfo.movieInfoList[sender.tag].isFavorite.toggle()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -75,6 +93,9 @@ class BookwarmCollectionViewController: UICollectionViewController {
         vc.modalPresentationStyle = .automatic
         
         vc.title = movieInfo.movieInfoList[indexPath.row].title
+        
+        let row = movieInfo.movieInfoList[indexPath.row]
+        vc.row = row
         
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -29,23 +29,35 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zyZ-kV-wCL">
-                        <rect key="frame" x="82" y="40" width="98" height="140"/>
+                        <rect key="frame" x="82" y="40" width="98" height="160"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hN-7v-cqJ">
+                        <rect key="frame" x="170" y="10" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8hN-7v-cqJ" secondAttribute="height" multiplier="1:1" id="YwX-2Z-XQa"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="FIz-7A-hws" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="2Rf-Zc-hoB"/>
-                <constraint firstAttribute="bottom" secondItem="zyZ-kV-wCL" secondAttribute="bottom" constant="20" id="B8x-fU-4wg"/>
+                <constraint firstAttribute="bottom" secondItem="zyZ-kV-wCL" secondAttribute="bottom" id="B8x-fU-4wg"/>
                 <constraint firstItem="zyZ-kV-wCL" firstAttribute="leading" secondItem="sQZ-aV-3ua" secondAttribute="trailing" constant="20" id="IFk-qg-cWG"/>
+                <constraint firstItem="zyZ-kV-wCL" firstAttribute="top" secondItem="8hN-7v-cqJ" secondAttribute="bottom" constant="10" id="KXF-DC-1OU"/>
                 <constraint firstAttribute="bottom" secondItem="sQZ-aV-3ua" secondAttribute="bottom" constant="20" id="Kom-Cy-Ekb"/>
+                <constraint firstItem="8hN-7v-cqJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="MSV-34-Aig"/>
                 <constraint firstItem="sQZ-aV-3ua" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="OGK-45-mLQ"/>
+                <constraint firstAttribute="trailing" secondItem="8hN-7v-cqJ" secondAttribute="trailing" constant="10" id="WQU-TE-65f"/>
                 <constraint firstItem="zyZ-kV-wCL" firstAttribute="top" secondItem="FIz-7A-hws" secondAttribute="top" constant="30" id="ZAM-Sk-Hn3"/>
                 <constraint firstItem="FIz-7A-hws" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="ne3-5k-hUa"/>
                 <constraint firstAttribute="trailing" secondItem="zyZ-kV-wCL" secondAttribute="trailing" constant="20" id="tvi-fw-k8z"/>
             </constraints>
             <size key="customSize" width="200" height="200"/>
             <connections>
+                <outlet property="favoriteButton" destination="8hN-7v-cqJ" id="xCB-me-giB"/>
                 <outlet property="moviePoster" destination="zyZ-kV-wCL" id="bXL-B3-FHh"/>
                 <outlet property="movieRate" destination="sQZ-aV-3ua" id="X9y-Bg-OrJ"/>
                 <outlet property="movieTitle" destination="FIz-7A-hws" id="L8t-3Y-5ub"/>
@@ -53,4 +65,7 @@
             <point key="canvasLocation" x="157.25190839694656" y="40.845070422535215"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
 </document>
