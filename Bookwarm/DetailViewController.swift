@@ -42,6 +42,7 @@ class DetailViewController: UIViewController {
         movieOverviewTitleLabel.font = .boldSystemFont(ofSize: 20)
         
         movieOverviewLabel.text = row.overview
+        movieOverviewLabel.numberOfLines = 0
     }
 
 
