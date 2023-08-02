@@ -65,11 +65,11 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="131" id="1Ri-rJ-1Yp">
-                                        <rect key="frame" x="0.0" y="250" width="393" height="131"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="1Ri-rJ-1Yp">
+                                        <rect key="frame" x="0.0" y="250" width="393" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ri-rJ-1Yp" id="FMa-A3-MoN">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="131"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -90,6 +90,7 @@
                         <outlet property="headerCollectionView" destination="9bF-cS-gtN" id="raM-9p-QXK"/>
                         <outlet property="headerView" destination="ipF-Iz-Ln8" id="KKj-Bs-GUJ"/>
                         <outlet property="headerViewTitle" destination="75v-Dk-i5B" id="yTd-x2-ghT"/>
+                        <outlet property="popularTableView" destination="Rzx-zZ-JHa" id="SvR-DV-4zC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

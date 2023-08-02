@@ -7,11 +7,13 @@
 
 import UIKit
 
-class AroundViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class AroundViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+    
 
     var movieInfo: MovieInfo = MovieInfo() {
         didSet {
             headerCollectionView.reloadData()
+            popularTableView.reloadData()
         }
     }
     
@@ -19,19 +21,29 @@ class AroundViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet var headerCollectionView: UICollectionView!
     @IBOutlet var headerViewTitle: UILabel!
     
+    @IBOutlet var popularTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         headerCollectionView.delegate = self
         headerCollectionView.dataSource = self
         
-        let nib = UINib(nibName: "AroundCollectionViewCell", bundle: nil)
-        headerCollectionView.register(nib, forCellWithReuseIdentifier: "AroundCollectionViewCell")
+        popularTableView.delegate = self
+        popularTableView.dataSource = self
+        
+        let collectionNib = UINib(nibName: "AroundCollectionViewCell", bundle: nil)
+        headerCollectionView.register(collectionNib, forCellWithReuseIdentifier: "AroundCollectionViewCell")
+        
+        let tableNib = UINib(nibName: "AroundTableViewCell", bundle: nil)
+        popularTableView.register(tableNib, forCellReuseIdentifier: "AroundTableViewCell")
         
         title = "둘러보기"
         
         configureHeaderView()
         configureHeaderCollectionViewLayout()
+        
+        
 
     }
     
@@ -63,4 +75,25 @@ class AroundViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieInfo.movieInfoList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = popularTableView.dequeueReusableCell(withIdentifier: "AroundTableViewCell") as! AroundTableViewCell
+        
+        let row = movieInfo.movieInfoList[indexPath.row]
+        
+        cell.configureCell(row: row)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "요즘 인기 작품"
+    }
 }
