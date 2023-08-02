@@ -74,6 +74,21 @@ class AroundViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
+        
+        vc.modalPresentationStyle = .automatic
+        
+        let row = movieInfo.movieInfoList[indexPath.row]
+        vc.row = row
+        
+        present(vc, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieInfo.movieInfoList.count
@@ -95,5 +110,23 @@ class AroundViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "요즘 인기 작품"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
+        
+        vc.modalPresentationStyle = .automatic
+        
+        let row = movieInfo.movieInfoList[indexPath.row]
+        vc.row = row
+        
+        present(vc, animated: true)
+        
+        //셀 선택 표시 없애기
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
