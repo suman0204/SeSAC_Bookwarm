@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet var headerBackView: UIView!
     @IBOutlet var moviePosterImage: UIImageView!
 
     @IBOutlet var movieTitleLabel: UILabel!
@@ -22,6 +23,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         configureDetailView(row: row)
         
     }
@@ -33,13 +36,16 @@ class DetailViewController: UIViewController {
         moviePosterImage.image = UIImage(named: row.title)
         
         movieTitleLabel.text = row.title
+        movieTitleLabel.font = .boldSystemFont(ofSize: 19)
+        movieTitleLabel.textColor = .white
         
         movieInfoLabel.text = row.movieInfo
+        movieInfoLabel.textColor = .white
         
-        movieRateLabel.text = String(row.rate)
+        movieRateLabel.text = row.rateText
         
         movieOverviewTitleLabel.text = "줄거리"
-        movieOverviewTitleLabel.font = .boldSystemFont(ofSize: 20)
+        movieOverviewTitleLabel.font = .boldSystemFont(ofSize: 17)
         
         movieOverviewLabel.text = row.overview
         movieOverviewLabel.numberOfLines = 0

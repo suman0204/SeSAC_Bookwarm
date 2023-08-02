@@ -20,6 +20,10 @@ struct Movie {
         "\(releaseDate) 개봉 | \(runtime) 분"
     }
     
+    var rateText: String {
+        "평균 ★ \(rate)"
+    }
+    
     var posterImage: UIImage {
 
         guard let posterImage = UIImage(named: title) else {

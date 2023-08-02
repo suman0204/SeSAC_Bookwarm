@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B61D6C62A7A699200A9BC2F /* AroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B61D6C52A7A699200A9BC2F /* AroundViewController.swift */; };
+		8B61D6C92A7A6B8B00A9BC2F /* AroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B61D6C72A7A6B8B00A9BC2F /* AroundCollectionViewCell.swift */; };
+		8B61D6CA2A7A6B8B00A9BC2F /* AroundCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B61D6C82A7A6B8B00A9BC2F /* AroundCollectionViewCell.xib */; };
 		8B7F13192A779A4E006A6B39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F13182A779A4E006A6B39 /* AppDelegate.swift */; };
 		8B7F131B2A779A4E006A6B39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F131A2A779A4E006A6B39 /* SceneDelegate.swift */; };
 		8B7F131D2A779A4E006A6B39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F131C2A779A4E006A6B39 /* ViewController.swift */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B61D6C52A7A699200A9BC2F /* AroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundViewController.swift; sourceTree = SOURCE_ROOT; };
+		8B61D6C72A7A6B8B00A9BC2F /* AroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundCollectionViewCell.swift; sourceTree = "<group>"; };
+		8B61D6C82A7A6B8B00A9BC2F /* AroundCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AroundCollectionViewCell.xib; sourceTree = "<group>"; };
 		8B7F13152A779A4E006A6B39 /* Bookwarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookwarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7F13182A779A4E006A6B39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B7F131A2A779A4E006A6B39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B61D6C42A7A68FD00A9BC2F /* AroundCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8B61D6C72A7A6B8B00A9BC2F /* AroundCollectionViewCell.swift */,
+				8B61D6C82A7A6B8B00A9BC2F /* AroundCollectionViewCell.xib */,
+			);
+			path = AroundCollectionView;
+			sourceTree = "<group>";
+		};
 		8B7F130C2A779A4E006A6B39 = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +85,13 @@
 		8B7F13172A779A4E006A6B39 /* Bookwarm */ = {
 			isa = PBXGroup;
 			children = (
+				8B61D6C52A7A699200A9BC2F /* AroundViewController.swift */,
 				8B7F13362A77B766006A6B39 /* SearchViewController.swift */,
 				8B7F13182A779A4E006A6B39 /* AppDelegate.swift */,
 				8B7F131A2A779A4E006A6B39 /* SceneDelegate.swift */,
 				8B7F131C2A779A4E006A6B39 /* ViewController.swift */,
 				8B7F131E2A779A4E006A6B39 /* Main.storyboard */,
+				8B61D6C42A7A68FD00A9BC2F /* AroundCollectionView */,
 				8B7F13382A77B786006A6B39 /* DetailViewController.swift */,
 				8B7F132E2A779C5F006A6B39 /* BookwarmCollectionViewController.swift */,
 				8B7F13342A77B204006A6B39 /* UIColor+.swift */,
@@ -150,6 +167,7 @@
 				8B7F13252A779A4F006A6B39 /* LaunchScreen.storyboard in Resources */,
 				8B7F13222A779A4F006A6B39 /* Assets.xcassets in Resources */,
 				8B7F13202A779A4E006A6B39 /* Main.storyboard in Resources */,
+				8B61D6CA2A7A6B8B00A9BC2F /* AroundCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,9 +183,11 @@
 				8B7F131D2A779A4E006A6B39 /* ViewController.swift in Sources */,
 				8B7F13372A77B766006A6B39 /* SearchViewController.swift in Sources */,
 				8B7F132F2A779C5F006A6B39 /* BookwarmCollectionViewController.swift in Sources */,
+				8B61D6C62A7A699200A9BC2F /* AroundViewController.swift in Sources */,
 				8B7F13192A779A4E006A6B39 /* AppDelegate.swift in Sources */,
 				8B7F132D2A779AF3006A6B39 /* Movie.swift in Sources */,
 				8B7F131B2A779A4E006A6B39 /* SceneDelegate.swift in Sources */,
+				8B61D6C92A7A6B8B00A9BC2F /* AroundCollectionViewCell.swift in Sources */,
 				8B7F13352A77B204006A6B39 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,7 @@ class BookwarmCollectionViewCell: UICollectionViewCell {
     
     func configureCell(row: Movie) {
         
+        
         movieTitle.text = row.title
         movieTitle.textColor = .white
         movieTitle.font = .boldSystemFont(ofSize: 17)
