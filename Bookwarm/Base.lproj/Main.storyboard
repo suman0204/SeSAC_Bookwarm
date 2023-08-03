@@ -264,7 +264,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xac-vW-SMH">
                                 <rect key="frame" x="10" y="508" width="373" height="310"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -297,6 +296,7 @@
                     </view>
                     <connections>
                         <outlet property="headerBackView" destination="jnc-FF-71k" id="gql-Sp-O7L"/>
+                        <outlet property="memoTextView" destination="xac-vW-SMH" id="TiY-1v-Ycx"/>
                         <outlet property="movieInfoLabel" destination="vQC-gT-TJP" id="i3o-Lr-e5Y"/>
                         <outlet property="movieOverviewLabel" destination="cVA-nD-rS2" id="Zc2-L2-3bW"/>
                         <outlet property="movieOverviewTitleLabel" destination="ZEa-Hk-baM" id="U82-no-Ggo"/>
