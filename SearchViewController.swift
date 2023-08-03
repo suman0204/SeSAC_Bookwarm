@@ -83,6 +83,23 @@ extension SearchViewController: UISearchBarDelegate, UITableViewDelegate, UITabl
         return 120
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
+        
+        vc.modalPresentationStyle = .automatic
+        
+        vc.title = movieInfo.movieInfoList[indexPath.row].title
+        
+        let row = movieInfo.movieInfoList[indexPath.row]
+        vc.row = row
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // searchBar
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchList.removeAll()

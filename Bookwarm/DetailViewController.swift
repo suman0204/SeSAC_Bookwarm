@@ -20,7 +20,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var memoTextView: UITextView!
     
-    let placeholderText: String = "내용을 입력해주세요."
+    let placeholderText: String = "감상평을 입력해주세요."
 
     var row: Movie = Movie(title: "정보없음", releaseDate: "정보없음", runtime: 0, overview: "정보없음", rate: 0.0)
     
