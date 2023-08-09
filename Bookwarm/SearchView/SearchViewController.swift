@@ -7,22 +7,19 @@
 
 import UIKit
 
+
 class SearchViewController: UIViewController {
 
-    
+//    var bookList: [Book] = []
     var movieInfo: MovieInfo = MovieInfo()
-//    {
-//        didSet {
-//            searchResultTableView.reloadData()
-//        }
-//    }
-    
-    var searchList:[Movie] = [] {
+
+    var searchList:[Movie] = []
+    {
         didSet{
             searchResultTableView.reloadData()
         }
     }
-    
+
     let searchBar = UISearchBar()
     
     @IBOutlet var searchResultTableView: UITableView!
@@ -52,9 +49,10 @@ class SearchViewController: UIViewController {
         
     }
 
+    
+    
     @objc
     func closeButtonClicked() {
-        
         dismiss(animated: true)
     }
 
@@ -85,24 +83,24 @@ extension SearchViewController: UISearchBarDelegate, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        
+
         guard let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
             return
         }
-        
+
         vc.modalPresentationStyle = .automatic
-        
+
         vc.title = movieInfo.movieInfoList[indexPath.row].title
-        
+
         let row = movieInfo.movieInfoList[indexPath.row]
         vc.row = row
-        
+
         navigationController?.pushViewController(vc, animated: true)
     }
     
     // searchBar
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchList.removeAll()
+        movieInfo.movieInfoList.removeAll()
         searchBar.text = ""
         searchResultTableView.reloadData()
         
@@ -110,28 +108,33 @@ extension SearchViewController: UISearchBarDelegate, UITableViewDelegate, UITabl
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        searchList.removeAll()
+//        guard let query = searchBar.text else {
+//            return
+//        }
         
+//        callRequest(query: query)
+        searchList.removeAll()
+
         for movie in movieInfo.movieInfoList {
             if movie.title.contains(searchBar.text!) {
                 searchList.append(movie)
             }
         }
-        
+
         searchResultTableView.reloadData()
         
     }
-    
+//    API 통신시 실시간 검색을 하면 너무 많은 요청과 응답이 발생
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         searchList.removeAll()
-        
+
         for movie in movieInfo.movieInfoList {
             if movie.title.contains(searchBar.text!) {
                 searchList.append(movie)
             }
         }
-        
+
         searchResultTableView.reloadData()
     }
 }

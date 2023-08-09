@@ -103,7 +103,7 @@ class BookwarmCollectionViewController: UICollectionViewController {
     @IBAction func searchBarButtonItemClicked(_ sender: UIBarButtonItem) {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {
+        guard let vc = sb.instantiateViewController(withIdentifier: "SearchBookViewController") as? SearchBookViewController else {
         
             return
         }
