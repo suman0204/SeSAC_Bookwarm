@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -24,6 +25,9 @@ class BookwarmCollectionViewController: UICollectionViewController {
 //        }
 //    }
     
+    // 검색한 책 저장된 값 불러오기
+    var tasks: Results<BookStore>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +37,18 @@ class BookwarmCollectionViewController: UICollectionViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: "BookwarmCollectionViewCell")
         
         setCollectionViewLayout()
+        
+        //Realm Read하기
+        let realm = try! Realm()
+        tasks = realm.objects(BookStore.self)
 
+    }
+    
+    //뷰가 다시 보일 때 컬렉션 뷰 갱신
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
     }
 
     
@@ -52,7 +67,8 @@ class BookwarmCollectionViewController: UICollectionViewController {
     
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieInfo.movieInfoList.count
+//        return movieInfo.movieInfoList.count
+        return tasks.count // 저장된 책의 갯수
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,9 +81,11 @@ class BookwarmCollectionViewController: UICollectionViewController {
             
         }
         
-        let row = movieInfo.movieInfoList[indexPath.row]
+//        let row = movieInfo.movieInfoList[indexPath.row]
+        let row = tasks[indexPath.row]
         
-        cell.configureCell(row: row)
+//        cell.configureCell(row: row)
+        cell.configureBookCell(row: row) // 저장된 책 내용 configure
         
         cell.layer.cornerRadius = 20
         cell.backgroundColor = colorSet.randomElement()

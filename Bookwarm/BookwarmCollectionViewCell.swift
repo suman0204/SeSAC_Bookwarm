@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BookwarmCollectionViewCell: UICollectionViewCell {
 
@@ -39,5 +40,31 @@ class BookwarmCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func configureBookCell(row: BookStore) {
+        
+        
+        movieTitle.text = row.bookTitle
+        movieTitle.textColor = .white
+        movieTitle.font = .boldSystemFont(ofSize: 17)
+        
+        movieRate.text = String(row.bookPrice)
+        movieRate.textColor = .white
+        
+        if let url = URL(string: row.bookThumbnail) {
+            moviePoster.kf.setImage(with: url)
+        }
+        moviePoster.contentMode = .scaleToFill
+        
+        favoriteButton.setTitle("", for: .normal)
+        favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+        favoriteButton.tintColor = .white
+        
+//        if row.isFavorite {
+//            favoriteButton.setImage(row.buttonImage, for: .normal)
+//        } else {
+//            favoriteButton.setImage(row.buttonImage, for: .normal)
+//        }
+        
+    }
 
 }

@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import RealmSwift
 
 struct Book {
     let title: String
@@ -141,6 +142,30 @@ extension SearchBookViewController: UITableViewDelegate, UITableViewDataSource, 
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let row = bookList[indexPath.row]
+        
+        let realm = try! Realm()
+        
+        let task = BookStore(bookTitle: row.title, bookThumbnail: row.thumbnail, bookPrice: row.salePrice)
+        
+        try! realm.write {
+            realm.add(task)
+            print("Realm Add Succed")
+            showAlertMessage(title: "저장", message: "선택한 책이 저장되었습니다.")
+        }
+    }
+    
+    //alert 함수
+    func showAlertMessage(title: String, message: String, button: String = "확인", handler: (() -> ())? = nil ) { //매개변수 기본값
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: button, style: .default) { _ in
+            handler?()
+        }
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
     
 }
 
