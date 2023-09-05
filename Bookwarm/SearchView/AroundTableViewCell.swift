@@ -39,7 +39,7 @@ class AroundTableViewCell: UITableViewCell {
     func configureBookCell(row: Book) {
         titleLabel.text = row.title
         contentsLabel.text = row.contents
-        infoLabel.text = row.authors
+        infoLabel.text = row.author
         
         if let url = URL(string: row.thumbnail) {
             posterImage.kf.setImage(with: url)

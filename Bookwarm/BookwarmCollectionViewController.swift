@@ -41,6 +41,8 @@ class BookwarmCollectionViewController: UICollectionViewController {
         //Realm Read하기
         let realm = try! Realm()
         tasks = realm.objects(BookStore.self)
+        
+        print(realm.configuration.fileURL)
 
     }
     

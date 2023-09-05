@@ -8,7 +8,9 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    var data: BookStore?
+    
     @IBOutlet var headerBackView: UIView!
     @IBOutlet var moviePosterImage: UIImageView!
 
@@ -34,28 +36,51 @@ class DetailViewController: UIViewController {
         
         memoTextView.delegate = self
 
-        configureDetailView(row: row)
+//        configureDetailView(row: row)
+//        configureBookDetailView(row: data)
         
     }
+    //검색 후 저장된 책 정보
+//    func configureBookDetailView(row: BookStore) {
+//        
+//        title = row.bookTitle
+//        
+//        moviePosterImage.image = UIImage(named: row.title)
+//        
+//        movieTitleLabel.text = row.title
+//        movieTitleLabel.font = .boldSystemFont(ofSize: 19)
+//        movieTitleLabel.textColor = .white
+//        
+//        movieInfoLabel.text = row.movieInfo
+//        movieInfoLabel.textColor = .white
+//        
+//        movieRateLabel.text = row.rateText
+//        
+//        movieOverviewTitleLabel.text = "줄거리"
+//        movieOverviewTitleLabel.font = .boldSystemFont(ofSize: 17)
+//        
+//        movieOverviewLabel.text = row.overview
+//        movieOverviewLabel.numberOfLines = 0
+//    }
     
     func configureDetailView(row: Movie) {
-        
+
         title = row.title
-        
+
         moviePosterImage.image = UIImage(named: row.title)
-        
+
         movieTitleLabel.text = row.title
         movieTitleLabel.font = .boldSystemFont(ofSize: 19)
         movieTitleLabel.textColor = .white
-        
+
         movieInfoLabel.text = row.movieInfo
         movieInfoLabel.textColor = .white
-        
+
         movieRateLabel.text = row.rateText
-        
+
         movieOverviewTitleLabel.text = "줄거리"
         movieOverviewTitleLabel.font = .boldSystemFont(ofSize: 17)
-        
+
         movieOverviewLabel.text = row.overview
         movieOverviewLabel.numberOfLines = 0
     }

@@ -14,7 +14,7 @@ import RealmSwift
 struct Book {
     let title: String
     let contents: String
-    let authors: String
+    let author: String
     let salePrice: Int
     let thumbnail: String
     
@@ -91,7 +91,7 @@ class SearchBookViewController: UIViewController {
                         let salePrice = item["sale_price"].intValue
                         let thumbnail = item["thumbnail"].stringValue
                         
-                        let data = Book(title: title, contents: contents, authors: authors, salePrice: salePrice, thumbnail: thumbnail)
+                        let data = Book(title: title, contents: contents, author: authors, salePrice: salePrice, thumbnail: thumbnail)
                         
                         self.bookList.append(data)
                     }
@@ -148,13 +148,25 @@ extension SearchBookViewController: UITableViewDelegate, UITableViewDataSource, 
         
         let realm = try! Realm()
         
-        let task = BookStore(bookTitle: row.title, bookThumbnail: row.thumbnail, bookPrice: row.salePrice)
+        let task = BookStore(bookTitle: row.title, bookThumbnail: row.thumbnail, bookContents: row.contents, bookAuthor: row.author,  bookPrice: row.salePrice, bookReview: nil)
         
         try! realm.write {
             realm.add(task)
             print("Realm Add Succed")
             showAlertMessage(title: "저장", message: "선택한 책이 저장되었습니다.")
         }
+        
+
+        
+        DispatchQueue.global().async {
+            if let url = URL(string: row.thumbnail), let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    self.saveImageToDocument(fileName: "book_\(task._id).jpg", image: UIImage(data: data) ?? UIImage(systemName: "stat")!)
+                }
+            }
+        }
+        
+        
     }
     
     //alert 함수
