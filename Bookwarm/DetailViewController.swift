@@ -11,7 +11,7 @@ import RealmSwift
 class DetailViewController: UIViewController {
     
     var data: BookStore?
-    var tasks: Results<BookStore>!
+    
     let realm = try! Realm()
 
     
@@ -41,26 +41,40 @@ class DetailViewController: UIViewController {
         
         memoTextView.delegate = self
 
-        tasks = realm.objects(BookStore.self)
         
 //        configureDetailView(row: row)
         guard let data = data else {return}
         configureBookDetailView(row: data)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(editButtonClicked))
+        let editBarButtonItem = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(editButtonClicked))
+        let deleteBarButtonItem = UIBarButtonItem(title: "삭제", style: .plain, target: self, action: #selector(deleteButtonClicked))
+        
+        navigationItem.rightBarButtonItems = [editBarButtonItem, deleteBarButtonItem]
         
         print("Viewdidload")
-        if memoTextView.text != data.bookReview {
+        if data.bookReview != nil {
             memoTextView.text = data.bookReview
             memoTextView.textColor = .black
         }
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewwillappear")
-        print(memoTextView.text)
+    //삭제 버튼 클릭시 Delete
+    @objc func deleteButtonClicked() {
+        guard let data = data else { return }
+        
+        removeImageFromDocument(fileName: "book_\(data._id).jpg")
+        
+        do {
+            try realm.write {
+                realm.delete(data)
+            }
+        } catch {
+            print(error)
+        }
+        
+        navigationController?.popViewController(animated: true)
+
     }
     
     //수정 버튼 클릭시 Update
