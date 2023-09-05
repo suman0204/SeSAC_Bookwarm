@@ -50,10 +50,12 @@ class BookwarmCollectionViewCell: UICollectionViewCell {
         movieRate.text = String(row.bookPrice)
         movieRate.textColor = .white
         
-        if let url = URL(string: row.bookThumbnail) {
-            moviePoster.kf.setImage(with: url)
-        }
-        moviePoster.contentMode = .scaleToFill
+//        if let url = URL(string: row.bookThumbnail) {
+//            moviePoster.kf.setImage(with: url)
+//        }
+        //Document에 저장된 이미지 불러오기
+        moviePoster.image = loadImageFromDocument(fileName: "book_\(row._id).jpg")
+        moviePoster.contentMode = .scaleAspectFit
         
         favoriteButton.setTitle("", for: .normal)
         favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)

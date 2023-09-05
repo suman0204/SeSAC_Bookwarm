@@ -114,8 +114,9 @@ class BookwarmCollectionViewController: UICollectionViewController {
         
         vc.title = movieInfo.movieInfoList[indexPath.row].title
         
-        let row = movieInfo.movieInfoList[indexPath.row]
-        vc.row = row
+//        let row = movieInfo.movieInfoList[indexPath.row]
+        let row = tasks[indexPath.row]
+        vc.data = row
         
         navigationController?.pushViewController(vc, animated: true)
     }
